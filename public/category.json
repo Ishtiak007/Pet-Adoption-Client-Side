@@ -1,0 +1,38 @@
+[
+    {
+        "_id":1,
+        "image": "https://i.ibb.co/LtCZwdY/michael-sum-LEpfef-Qf4r-U-unsplash.jpg",
+        "title": "Whisker Whispers: Cozy Moments with Your Elegant and Playful Feline.",
+        "category": "cat"
+    },
+    {
+        "_id":2,
+        "image": "https://i.ibb.co/s3skmh8/milli-2l0-CWTpc-Ch-I-unsplash.jpg",
+        "title": "Pawsitively Devoted: Life's Best Moments Shared with Your Loyal Canine.",
+        "category": "dog"
+    },
+    {
+        "_id":3,
+        "image": "https://i.ibb.co/7zkfBhp/alexander-grey-W5-D-7pa-Ua0-unsplash.jpg",
+        "title": "Winged Joy: Feathered Companionship Adding Melody and Magic to Your Home.",
+        "category": "bird"
+    },
+    {
+        "_id":4,
+        "image": "https://i.ibb.co/vLBByQs/burul-dyikanbekova-Rgo8ueiwep-I-unsplash.jpg",
+        "title": "Hop into Happiness: Your Journey with a Lovable Rabbit Companion.",
+        "category": "rabbit"
+    },
+    {
+        "_id":5,
+        "image": "https://i.ibb.co/thqtZPS/claudio-guglieri-K2-RH1-QZd-LF4-unsplash.jpg",
+        "title": "Aqua Serenity: Navigating Tranquility with Your Finned Companions at Home.",
+        "category": "fish"
+    },
+    {
+        "_id":6,
+        "image": "https://i.ibb.co/MfZpbc6/bailey-mahon-Alfg-Sap679-Y-unsplash.jpg",
+        "title": "Domestic Bliss: Loving Life with Your Perfect Furry, Feathery Companions.",
+        "category": "domestic"
+    }
+]
