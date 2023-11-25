@@ -19,7 +19,7 @@ const Testimonials = () => {
     return (
         <section className="my-20">
             <SectionTitle
-                subHeading={'What our client say'}
+                subHeading={'What our regular well-wisher say'}
                 heading={'Testimonials'}
             ></SectionTitle>
 
@@ -27,15 +27,17 @@ const Testimonials = () => {
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                 {
                     reviews.map(review => <SwiperSlide key={review._id}>
-                        <div className="my-16 mx-24 flex flex-col items-center">
-                            <Rating
-                                style={{ maxWidth: 180 }}
-                                value={review.rating}
-                                readOnly
-                            />
-                            <p className="my-8">{review.details}</p>
-                            <FaComments className="text-5xl text-orange-300"></FaComments>
-                            <h3 className="text-2xl text-orange-400">{review.name}</h3>
+                        <div className="card card-compact bg-base-100 shadow-xl my-5">
+                            <div className="card-body">
+                                <FaComments className="text-5xl text-orange-300"></FaComments>
+                                <h3 className="text-2xl text-orange-400">{review.name}</h3>
+                                <p>{review.details}</p>
+                                <div className="card-title mx-auto"> <Rating
+                                    style={{ maxWidth: 180 }}
+                                    value={review.rating}
+                                    readOnly
+                                /></div>
+                            </div>
                         </div>
                     </SwiperSlide>)
                 }
