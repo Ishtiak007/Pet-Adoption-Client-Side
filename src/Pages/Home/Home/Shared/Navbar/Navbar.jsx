@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import navLogo from '../../../../../assets/logo/petLogo-removebg-preview.png'
+import { FaUser } from "react-icons/fa";
 
 const Navbar = () => {
     const navLinks = <>
@@ -33,8 +34,7 @@ const Navbar = () => {
                             <Link>
                                 <div className="avatar">
                                     <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                        <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                                        <p className='text-[12px]'>No Img</p>
+                                        <FaUser className='mx-auto text-3xl'></FaUser>
                                     </div>
                                 </div>
                             </Link>

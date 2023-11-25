@@ -30,7 +30,7 @@ const OverlayBottom = () => {
                         <div className='text-center my-7'>
                             <div className="flex flex-col w-full lg:flex-row">
                                 <div className="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center"> <button className='btn bg-[#FF4860] hover:bg-[#FF4835] text-white'>Take Youe Pet</button></div>
-                                <div className="divider lg:divider-horizontal">OR</div>
+                                <div className="divider lg:divider-horizontal">or</div>
                                 <div className="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center"><button className='btn bg-[#48c5ff] hover:bg-[#359aff]'>Make Donation</button></div>
                             </div>
                         </div>
