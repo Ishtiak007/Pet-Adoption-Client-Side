@@ -1,13 +1,45 @@
-import { useContext } from "react";
 import { FaCat } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
-import { AuthContext } from "../../Providers/AuthProvider";
+import useAuth from "../../Hooks/useAuth";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 
 const PetDetails = () => {
     const petDetails = useLoaderData();
     const { image, petName, petAge, date, location, longDescription, category } = petDetails;
-    const { user } = useContext(AuthContext)
+    const { user } = useAuth();
+    const axiosSecure = useAxiosSecure();
+
+
+
+    const handleAddInformation = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = user?.displayName;
+        const email = user?.email;
+        const phoneNumber = form.phoneNumber.value;
+        const address = form.address.value;
+
+        const UserInformation = {
+            name, email, phoneNumber, address, image, petName, petAge, date, location, longDescription, category
+        }
+        axiosSecure.post('/adoptionUsers', UserInformation)
+            .then(res => {
+
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        position: "top-right",
+                        icon: "success",
+                        title: `${name} added to the cart`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+
+
+    }
     return (
         <div>
             <div style={{ '--image-url': `url(${image})` }}
@@ -40,36 +72,35 @@ const PetDetails = () => {
                                     <div className="modal-box">
                                         <h3 className="font-bold text-lg text-center">Please Full-fill the form</h3>
                                         <div className="modal-action">
-                                            <form method="dialog" className="card-body">
+                                            <form onSubmit={handleAddInformation} method="dialog" className="card-body">
                                                 <div className="form-control">
                                                     <label className="label">
                                                         <span className="label-text font-semibold">Name</span>
                                                     </label>
-                                                    <input type="text" defaultValue={user?.displayName} disabled placeholder="Name" className="input input-bordered" required />
+                                                    <input type="text" name="name" defaultValue={user?.displayName} disabled placeholder="Name" className="input input-bordered" required />
                                                 </div>
                                                 <div className="form-control">
                                                     <label className="label">
                                                         <span className="label-text font-semibold">Email</span>
                                                     </label>
-                                                    <input type="email" defaultValue={user?.email} disabled placeholder="email" className="input input-bordered" required />
+                                                    <input type="email" name="email" defaultValue={user?.email} disabled placeholder="email" className="input input-bordered" required />
                                                 </div>
                                                 <div className="form-control">
                                                     <label className="label">
                                                         <span className="label-text font-semibold">Phone Number</span>
                                                     </label>
-                                                    <input type="number" placeholder="Your Phone Number" className="input input-bordered" required />
+                                                    <input type="text" name="phoneNumber" placeholder="Your Phone Number" className="input input-bordered" required />
                                                 </div>
                                                 <div className="form-control">
                                                     <label className="label">
                                                         <span className="label-text font-semibold">Your Address</span>
                                                     </label>
-                                                    <input type="text" placeholder="Your Address" className="input input-bordered" required />
+                                                    <input type="text" name="address" placeholder="Your Address" className="input input-bordered" required />
                                                 </div>
                                                 <div className="form-control mt-3">
                                                     <button className="px-4 py-2 bg-red-800 rounded-2xl btn-outline text-white font-bold">Submit</button>
+                                                    <p className="text-center my-1">Press ESC key to exit</p>
                                                 </div>
-
-                                                <p className="py-2 text-center">Press ESC key to exit</p>
                                             </form>
                                         </div>
                                     </div>

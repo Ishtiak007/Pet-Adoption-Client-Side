@@ -8,6 +8,7 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import PrivateRoute from "./PrivateRoute";
 import PetDetails from "../Pages/PetDetails/PetDetails";
+import DonationCampaigns from "../Pages/DonationCampaigns/DonationCampaigns";
 
 export const router = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
                 path: '/petDetails/:id',
                 element: <PetDetails></PetDetails>,
                 loader: ({ params }) => fetch(`http://localhost:5000/petListing/${params.id}`)
+            },
+            {
+                path: '/donationCampaigns',
+                element: <DonationCampaigns></DonationCampaigns>
             }
         ]
     },

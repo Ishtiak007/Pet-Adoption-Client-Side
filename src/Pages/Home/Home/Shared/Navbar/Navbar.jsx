@@ -10,7 +10,7 @@ const Navbar = () => {
     const navLinks = <>
         <li><Link className='font-semibold text-white' to='/'>Home</Link></li>
         <li><Link className='font-semibold text-white' to='/petListing'>Pet Listing</Link></li>
-        <li><Link className='font-semibold text-white' to='/'>Donation Campaings</Link></li>
+        <li><Link className='font-semibold text-white' to='/donationCampaigns'>Donation Campaings</Link></li>
         <li><Link className='font-semibold text-white' to='/login'>Login</Link></li>
     </>
     const handleLogOut = () => {
