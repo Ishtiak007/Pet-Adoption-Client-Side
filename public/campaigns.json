@@ -1,5 +1,6 @@
 [
     {
+        "petName":"unknown",
         "image": "https://i.ibb.co/NWZ7g9s/joppe-spaa-Eq-Tl-SHf-HX-o-unsplash.jpg",
         "maximumDonation":"2",
         "highestTotal":"1",
@@ -9,6 +10,7 @@
         "time":"3:00 am"
     },
     {
+        "petName":"unknown",
         "image": "https://i.ibb.co/w0VNbS8/jesse-schoff-i2-Def-Z6-PCN0-unsplash.jpg",
         "maximumDonation":"5",
         "highestTotal":"2",
@@ -18,6 +20,7 @@
         "time":"2:00 pm"
     },
     {
+        "petName":"unknown",
         "image": "https://i.ibb.co/4gs7x4t/lenstravelier-m-O-f-Luk-S3lo-unsplash.jpg",
         "maximumDonation":"4",
         "highestTotal":"2",

@@ -12,7 +12,7 @@ const DonationCampaigns = () => {
             <Helmet>
                 <title>Pet Adoption | Donation campaigns</title>
             </Helmet>
-            <Cover img={donationImg} title={'Donation Campaigns'} description={'Explore our curated pet listing page, featuring adorable profiles ready for loving homes. Find your perfect companion today!'}></Cover>
+            <Cover img={donationImg} title={'Donation Campaigns'} description={'Heartfelt Giving: Join Our Donation Campaigns to Make a Difference in Lives, One Contribution at a Time.'}></Cover>
 
 
             <div className="flex justify-center">

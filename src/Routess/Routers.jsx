@@ -9,6 +9,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 import PrivateRoute from "./PrivateRoute";
 import PetDetails from "../Pages/PetDetails/PetDetails";
 import DonationCampaigns from "../Pages/DonationCampaigns/DonationCampaigns";
+import CampaignsDetails from "../Pages/DonationCampaigns/CampaignsDetails";
 
 export const router = createBrowserRouter([
     {
@@ -38,7 +39,12 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/donationCampaigns',
-                element: <DonationCampaigns></DonationCampaigns>
+                element: <PrivateRoute><DonationCampaigns></DonationCampaigns></PrivateRoute>
+            },
+            {
+                path: '/campaingsDetails/:id',
+                element: <CampaignsDetails></CampaignsDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/campaigns/${params.id}`)
             }
         ]
     },
