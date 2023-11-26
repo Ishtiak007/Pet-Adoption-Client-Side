@@ -1,3 +1,6 @@
 .linkItemImg{
     background-image: url('../RegisterLink/background.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

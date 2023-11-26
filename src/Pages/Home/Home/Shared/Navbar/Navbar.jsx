@@ -1,14 +1,27 @@
 import { Link } from 'react-router-dom';
 import navLogo from '../../../../../assets/logo/petLogo-removebg-preview.png'
 import { FaUser } from "react-icons/fa";
+import { useContext } from 'react';
+import { AuthContext } from '../../../../../Providers/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
     const navLinks = <>
         <li><Link className='font-semibold text-white' to='/'>Home</Link></li>
-        <li><Link className='font-semibold text-white' to='/'>Pet Listing</Link></li>
+        <li><Link className='font-semibold text-white' to='/petListing'>Pet Listing</Link></li>
         <li><Link className='font-semibold text-white' to='/'>Donation Campaings</Link></li>
-        <li><Link className='font-semibold text-white' to='/'>Login</Link></li>
+        <li><Link className='font-semibold text-white' to='/login'>Login</Link></li>
     </>
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                toast.success('Log Out successfully!');
+            })
+            .catch(() => {
+                toast.error("Something wrong. Please Try again")
+            })
+    }
     return (
         <>
             <div className="navbar fixed z-10 bg-opacity-30 bg-black text-white max-w-[1450px]">
@@ -34,17 +47,18 @@ const Navbar = () => {
                             <Link>
                                 <div className="avatar">
                                     <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                        <FaUser className='mx-auto text-3xl'></FaUser>
+                                        {
+                                            user ? <div><img className="mr-3 w-[40px] rounded-full" src={user.photoURL} alt="" /></div> : <FaUser className='mx-auto text-3xl'></FaUser>
+                                        }
                                     </div>
                                 </div>
                             </Link>
                         </label>
                         <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-slate-700 rounded-box w-52">
                             <div>
-                                <p className='my-5 text-xs text-white'>User Name : <br />Ishtiak Ahmed</p>
-                                <p className='my-5 text-xs text-white'>User Email : <br />ishtiakahmed01999@gamil.com</p>
-                                <li><Link className='font-semibold text-gray-200 my-2 mx-auto' >Dashboard</Link></li>
-                                <li><Link className='font-semibold text-gray-200 mx-auto' >Log Out</Link></li>
+                                <p className='my-5 text-xs text-white'>User Email : <br />{user ? <>{user.email}</> : <p className='text-red-500 font-bold'>You are not Log in</p>}</p>
+                                <li><Link className='font-semibold text-gray-200 my-2 mx-auto'><button className='px-3 py-1 rounded-md bg-orange-500 hover:bg-orange-600  w-full'>Dashboard</button></Link></li>
+                                <li><Link className='font-semibold text-gray-200 mx-auto' ><button onClick={handleLogOut} className='px-3 py-1 rounded-md bg-orange-500 hover:bg-orange-600 w-full'>Log Out</button></Link></li>
                             </div>
                         </ul>
                     </div>

@@ -18,7 +18,7 @@ const RegisterLink = () => {
                 <div className="flex-1">
                     <p className="uppercase text-2xl font-bold">Want to register? </p>
                     <p className='my-3 text-gray-200'>Unlock a world of possibilities! Register now to access exclusive pet profiles, adoption events, and valuable resources. Join our community and start your journey to finding the perfect furry companion today!</p>
-                    <Link><button className="px-4 py-2 bg-[#FF4860] rounded-2xl btn-outline text-white font-bold">Register Now</button></Link>
+                    <Link to='/signUp'><button className="px-4 py-2 bg-[#FF4860] rounded-2xl btn-outline text-white font-bold">Register Now</button></Link>
                 </div>
             </div>
         </div>
