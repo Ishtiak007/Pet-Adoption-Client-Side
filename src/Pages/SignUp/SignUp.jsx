@@ -8,7 +8,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 
 const SignUp = () => {
-    const { createUser } = useContext(AuthContext)
+    const { createUser, updateUserProfile } = useContext(AuthContext)
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const location = useLocation();
@@ -20,15 +20,20 @@ const SignUp = () => {
             .then(res => {
                 const user = res.user;
                 console.log(user)
-                reset();
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "User Log in Successfully",
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-                navigate(from, { replace: true });
+                updateUserProfile(data.name, data.photoUrl)
+                    .then(() => {
+                        console.log('user Updated')
+                        reset();
+                        Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: "User Log in Successfully",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        navigate(from, { replace: true });
+                    })
+                    .catch(error => console.log(error))
             })
             .catch(err => {
                 console.log(err)

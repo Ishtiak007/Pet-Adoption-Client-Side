@@ -1,15 +1,18 @@
 import { Helmet } from "react-helmet-async";
 import Cover from "../../Components/Cover/Cover";
-import petListing from '../../assets/coverImg/petListing.jpg'
+import petListingImg from '../../assets/coverImg/petListing.jpg'
 import { FaCat } from "react-icons/fa";
+import usePetListing from "../../Hooks/usePetListing";
+import PetListingCard from "./PetListingCard";
 
 const PetListing = () => {
+    const [pets] = usePetListing();
     return (
         <div>
             <Helmet>
                 <title>Pet Adoption | Pet Listing</title>
             </Helmet>
-            <Cover img={petListing} title={'Pet Listing'} description={'Explore our curated pet listing page, featuring adorable profiles ready for loving homes. Find your perfect companion today!'}></Cover>
+            <Cover img={petListingImg} title={'Pet Listing'} description={'Explore our curated pet listing page, featuring adorable profiles ready for loving homes. Find your perfect companion today!'}></Cover>
 
 
 
@@ -45,6 +48,16 @@ const PetListing = () => {
                         </select>
                         <button className="btn btn-info text-white mt-3">Search Now</button>
                     </form>
+                </div>
+            </div>
+
+
+
+            <div className="flex justify-center">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    {
+                        pets.map(item => <PetListingCard key={item._id} item={item}></PetListingCard>)
+                    }
                 </div>
             </div>
         </div>
