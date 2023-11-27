@@ -7,13 +7,16 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Login = () => {
     const { signIn, googleSignIn, gitHubLogin } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
+    const axiosPublic = useAxiosPublic();
 
     const from = location.state?.from?.pathname || "/";
+
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -41,25 +44,43 @@ const Login = () => {
             })
     }
 
+
+
     const handleGoogleLogIn = () => {
         googleSignIn()
-            .then((res) => {
-                toast.success('Google Log In successfully!');
-                console.log(res.user);
-                navigate(location?.state ? location.state : '/');
+            .then(res => {
+                console.log(res);
+                const userInfo = {
+                    email: res.user?.email,
+                    name: res.user?.displayName
+                }
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        console.log(res.data);
+                        toast.success('Google Log In successfully!');
+                        console.log(res.user);
+                        navigate(location?.state ? location.state : '/');
+                    })
             })
-            .catch((error) => {
-                toast.error("Invalid login credentials")
-                console.log(error)
+            .catch(err => {
+                console.log(err)
             })
     }
+
 
     const handleGithubLogIn = () => {
         gitHubLogin()
             .then((res) => {
-                toast.success('GitHub Log In successfully!');
-                console.log(res.user);
-                navigate(location?.state ? location.state : '/');
+                const userInfo = {
+                    email: res.user?.email,
+                    name: res.user?.displayName
+                }
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        toast.success('GitHub Log In successfully!');
+                        console.log(res.user);
+                        navigate(location?.state ? location.state : '/');
+                    })
             })
             .catch((error) => {
                 toast.error("Invalid login credentials")
@@ -76,18 +97,18 @@ const Login = () => {
 
                 <div className="flex-col lg:flex-row-reverse">
                     <div className="card shrink-0 w-full shadow-2xl bg-base-100">
-                        <form onClick={handleLogin} className="card-body">
+                        <form onSubmit={handleLogin} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text font-bold">Email</span>
                                 </label>
-                                <input type="email" placeholder="email" className="input input-bordered" required />
+                                <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text font-bold">Password</span>
                                 </label>
-                                <input type="password" placeholder="password" className="input input-bordered" required />
+                                <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                             </div>
                             <div className="form-control mt-6">
                                 <button className="px-4 py-2 bg-red-800 rounded-2xl btn-outline text-white font-bold">Login Now</button>

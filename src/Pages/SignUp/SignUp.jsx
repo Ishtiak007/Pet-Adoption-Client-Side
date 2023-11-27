@@ -3,13 +3,14 @@ import CoverTwo from "../../Components/Cover/CoverTwo";
 import registerCover from '../../assets/coverImg/registerCover.jpg'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { useContext } from "react";
-import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import useAuth from "../../Hooks/useAuth";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const SignUp = () => {
-    const { createUser, updateUserProfile } = useContext(AuthContext)
+    const { createUser, updateUserProfile } = useAuth();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const axiosPublic = useAxiosPublic();
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -20,18 +21,28 @@ const SignUp = () => {
             .then(res => {
                 const user = res.user;
                 console.log(user)
-                updateUserProfile(data.name, data.photoUrl)
+                updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                        console.log('user Updated')
-                        reset();
-                        Swal.fire({
-                            position: "center",
-                            icon: "success",
-                            title: "User Log in Successfully",
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                        navigate(from, { replace: true });
+                        // console.log('user Updated')
+                        const userInfo = {
+                            name: data.name,
+                            email: data.email
+                        }
+                        axiosPublic.post('/users', userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    console.log('User added to the database')
+                                    reset();
+                                    Swal.fire({
+                                        position: "center",
+                                        icon: "success",
+                                        title: "User Log in Successfully",
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate(from, { replace: true });
+                                }
+                            })
                     })
                     .catch(error => console.log(error))
             })
@@ -66,8 +77,8 @@ const SignUp = () => {
                                 <label className="label">
                                     <span className="label-text font-bold">Photo URL</span>
                                 </label>
-                                <input type="text" {...register("photoUrl", { required: true })} placeholder="Photo URL" className="input input-bordered" />
-                                {errors.photoUrl && <span className='text-red-500'>photoUrl field is required</span>}
+                                <input type="text" {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered" />
+                                {errors.photoURL && <span className='text-red-500'>photoURL field is required</span>}
                             </div>
 
 
