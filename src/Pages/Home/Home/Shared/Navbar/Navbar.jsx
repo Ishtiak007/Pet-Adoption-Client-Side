@@ -58,7 +58,7 @@ const Navbar = () => {
                             <div>
                                 <div className='my-5 text-xs text-white'>User Email : <br />{user ? <>{user.email}</> : <span className='text-red-500 font-bold'>You are not Log in</span>}</div>
 
-                                <li><Link to='/dashboard' className='font-semibold text-gray-200 my-2 mx-auto'><button className='px-3 py-1 rounded-md bg-orange-500 hover:bg-orange-600  w-full'>Dashboard</button></Link></li>
+                                <li><Link to='/dashboard/addPet' className='font-semibold text-gray-200 my-2 mx-auto'><button className='px-3 py-1 rounded-md bg-orange-500 hover:bg-orange-600  w-full'>Dashboard</button></Link></li>
 
                                 <li><Link className='font-semibold text-gray-200 mx-auto' ><button onClick={handleLogOut} className='px-3 py-1 rounded-md bg-orange-500 hover:bg-orange-600 w-full'>Log Out</button></Link></li>
                             </div>

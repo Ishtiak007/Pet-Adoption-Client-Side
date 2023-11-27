@@ -1,6 +1,7 @@
-import { FaCat, FaDochub, FaDog, FaDonate, FaListAlt, FaOdnoklassniki, FaRegQuestionCircle } from "react-icons/fa";
+import { FaCat, FaCcAmazonPay, FaDochub, FaDog, FaDonate, FaOdnoklassniki, FaPaw, FaRegQuestionCircle, FaUsers } from "react-icons/fa";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import logo from '../assets/logo/petLogo-removebg-preview.png'
+import useAdmin from "../Hooks/useAdmin";
 
 
 const DashBoard = () => {
@@ -9,11 +10,14 @@ const DashBoard = () => {
         <li><Link className='font-semibold text-black' to='/petListing'>Pet Listing</Link></li>
         <li><Link className='font-semibold text-black' to='/donationCampaigns'>Donation Campaings</Link></li>
     </>
+
+
+    const [isAdmin] = useAdmin();
     return (
         <div>
 
 
-            <div className="navbar bg-gray-100 mt-5 rounded-md">
+            <div className="navbar bg-gray-100 mt-5 lg:w-1/2 mx-auto rounded-md">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -38,24 +42,63 @@ const DashBoard = () => {
             <div className="lg:flex md:flex mt-4">
                 <div className="lg:w-64 md:w-64 min-h-screen bg-sky-100 rounded-md">
                     <div className="menu space-y-3">
-                        <li>
-                            <NavLink to='/dashboard/addPet'><FaCat></FaCat>Add a pet</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to='/dashboard/myAddedPet'><FaDog></FaDog>My added pets</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to='/dashboard/adoptionRequest'><FaRegQuestionCircle></FaRegQuestionCircle>Adoption Request</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to='/dashboard/createDonationCampaign'><FaDonate></FaDonate>Create Donation Campaign</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to='/dashboard/myDonationCampaign'><FaOdnoklassniki></FaOdnoklassniki>My Donation Campaigns</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to='/dashboard/myDonation'><FaDochub></FaDochub>My Donations</NavLink>
-                        </li>
+                        {
+                            isAdmin ? <>
+                                <h1 className="text-center my-5 font-bold text-2xl">Admin Dashboard</h1>
+
+                                <li>
+                                    <NavLink to='/dashboard/makeAdmin'><FaUsers></FaUsers>All Users / Make Admin</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/dashboard/allPets'><FaPaw></FaPaw>All Pets</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/dashboard/allDonations'><FaCcAmazonPay></FaCcAmazonPay>All Donations</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/dashboard/addPet'><FaCat></FaCat>Add a pet</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/dashboard/myAddedPet'><FaDog></FaDog>Admin added pets</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/dashboard/adoptionRequest'><FaRegQuestionCircle></FaRegQuestionCircle>Adoption Request</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/dashboard/createDonationCampaign'><FaDonate></FaDonate>Create Donation Campaign</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/dashboard/myDonationCampaign'><FaOdnoklassniki></FaOdnoklassniki>My Donation Campaigns</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/dashboard/myDonation'><FaDochub></FaDochub>My Donations</NavLink>
+                                </li>
+
+                            </>
+                                :
+
+                                <>
+                                    <h1 className="text-center my-5 font-bold text-2xl">User Dashboard</h1>
+                                    <li>
+                                        <NavLink to='/dashboard/addPet'><FaCat></FaCat>Add a pet</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/dashboard/myAddedPet'><FaDog></FaDog>My added pets</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/dashboard/adoptionRequest'><FaRegQuestionCircle></FaRegQuestionCircle>Adoption Request</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/dashboard/createDonationCampaign'><FaDonate></FaDonate>Create Donation Campaign</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/dashboard/myDonationCampaign'><FaOdnoklassniki></FaOdnoklassniki>My Donation Campaigns</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/dashboard/myDonation'><FaDochub></FaDochub>My Donations</NavLink>
+                                    </li>
+                                </>
+                        }
                     </div>
                 </div>
                 <div className="flex-1 p-8">

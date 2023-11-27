@@ -12,6 +12,7 @@ import DonationCampaigns from "../Pages/DonationCampaigns/DonationCampaigns";
 import CampaignsDetails from "../Pages/DonationCampaigns/CampaignsDetails";
 import DashBoard from "../Layout/DashBoard";
 import AddPet from "../Pages/UserDashboard/AddPet/AddPet";
+import AllUsers from "../Pages/AdminDashboard/AllUsers";
 
 export const router = createBrowserRouter([
     {
@@ -57,6 +58,19 @@ export const router = createBrowserRouter([
             {
                 path: 'addPet',
                 element: <AddPet></AddPet>
+            },
+
+
+
+
+
+
+
+
+            // Admin Routes
+            {
+                path: 'makeAdmin',
+                element: <AllUsers></AllUsers>
             }
         ]
     }
