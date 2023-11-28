@@ -13,6 +13,6 @@ const AdminRoute = ({ children }) => {
     if (user && isAdmin) {
         return children;
     }
-    return <Navigate to='/' state={{ from: location }} replace></Navigate>
+    return <Navigate to='/dashboard/addPet' state={{ from: location }} replace></Navigate>
 };
 export default AdminRoute;

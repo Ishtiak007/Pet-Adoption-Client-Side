@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 
 const PetListingCard = ({ item }) => {
-    const { _id, image, petName, petAge, date, location, shortDescription, category, dateAndTime, adopted } = item
+    const { _id, image, petName, petAge, date, petLocation, shortDescription, category, dateAndTime } = item
     return (
         <div className="card lg:w-96 md:w-96 bg-base-100 shadow-xl my-6">
             <div className="card-body">
@@ -13,7 +13,7 @@ const PetListingCard = ({ item }) => {
             <figure><img src={image} className="h-64 w-full" alt="Image" /></figure>
             <div className="card-body">
                 <p className="text-[10px]">{dateAndTime}</p>
-                <h2 className="font-bold">{location}</h2>
+                <h2 className="font-bold">{petLocation}</h2>
                 <p>{shortDescription}</p>
                 <p className="font-semibold">Date: {date}</p>
                 <div className="card-actions justify-end">

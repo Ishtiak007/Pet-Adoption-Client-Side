@@ -78,22 +78,30 @@ const AllUsers = () => {
                     <thead className="bg-gray-500 ">
                         <tr>
                             <th className="text-white">Index</th>
+                            <th className="text-white">Profile Photo</th>
                             <th className="text-white">Name</th>
                             <th className="text-white">Email</th>
                             <th className="text-white">Role</th>
-                            <th className="text-white">Delete User</th>
+                            <th className="text-white">Ban User/Admin</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             users.map((user, index) => <tr key={user._id}>
                                 <th>{index + 1}</th>
+                                <th><div className="flex items-center gap-3">
+                                    <div className="avatar">
+                                        <div className="mask mask-squircle w-12 h-12">
+                                            <img src={user.photoURL} />
+                                        </div>
+                                    </div>
+                                </div></th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>
-                                    {user.role === 'admin' ? 'Admin' : <button onClick={() => handleMakeAdmin(user)} className="btn bg-orange-500 text-white"><FaUsers className="text-2xl "></FaUsers></button>}
+                                    {user.role === 'admin' ? 'Admin Now' : <button onClick={() => handleMakeAdmin(user)} className="btn bg-sky-500 hover:bg-sky-700 text-white flex items-center gap-2"><FaUsers className="text-2xl "></FaUsers> Make Admin</button>}
                                 </td>
-                                <td><button onClick={() => handleDeleteUser(user)} className="btn"><FaTrash className="text-2xl text-red-700"></FaTrash></button></td>
+                                <td><button onClick={() => handleDeleteUser(user)} className="btn"><FaTrash className="text-2xl text-red-600 flex gap-2 items-center"></FaTrash>Ban</button></td>
                             </tr>)
                         }
 

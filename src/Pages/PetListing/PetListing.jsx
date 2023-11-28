@@ -38,13 +38,17 @@ const PetListing = () => {
                         <label className="label">
                             <span className="label-text">Pick your pet category</span>
                         </label>
-                        <select className="select select-bordered">
-                            <option disabled selected>Pick One Category</option>
-                            <option>Star Wars</option>
-                            <option>Harry Potter</option>
-                            <option>Lord of the Rings</option>
-                            <option>Planet of the Apes</option>
-                            <option>Star Trek</option>
+                        <select
+                            defaultValue={'default'}
+                            name="category"
+                            className="select select-bordered w-full">
+                            <option value={'default'} disabled>select a value</option>
+                            <option value={'cat'}>Cat</option>
+                            <option value={'dog'}>Dog</option>
+                            <option value={'bird'}>Bird</option>
+                            <option value={'rabbit'}>Rabbit</option>
+                            <option value={'fish'}>Fish</option>
+                            <option value={'domestic'}>Domestic</option>
                         </select>
                         <button className="btn btn-info text-white mt-3">Search Now</button>
                     </form>

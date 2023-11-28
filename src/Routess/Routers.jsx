@@ -15,6 +15,8 @@ import AddPet from "../Pages/UserDashboard/AddPet/AddPet";
 import AllUsers from "../Pages/AdminDashboard/AllUsers";
 import CreateDonationCampaign from "../Pages/UserDashboard/AddPet/CreateDonationCampaign";
 import AdminRoute from "./AdminRoute";
+import ManageAllPets from "../Pages/AdminDashboard/ManageAllPets";
+import UpdatePet from "../Pages/AdminDashboard/UpdatePet";
 
 export const router = createBrowserRouter([
     {
@@ -76,8 +78,17 @@ export const router = createBrowserRouter([
             // Admin Routes
             {
                 path: 'makeAdmin',
-                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>,
             },
+            {
+                path: 'manageAllPets',
+                element: <AdminRoute><ManageAllPets></ManageAllPets></AdminRoute>
+            },
+            {
+                path: 'updatePet/:id',
+                element: <AdminRoute><UpdatePet></UpdatePet></AdminRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/petListing/${params.id}`)
+            }
 
         ]
     }

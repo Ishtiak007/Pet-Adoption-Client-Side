@@ -50,7 +50,7 @@ const DashBoard = () => {
                                     <NavLink to='/dashboard/makeAdmin'><FaUsers></FaUsers>All Users / Make Admin</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to='/dashboard/allPets'><FaPaw></FaPaw>All Pets</NavLink>
+                                    <NavLink to='/dashboard/manageAllPets'><FaPaw></FaPaw>Manage All Pets</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to='/dashboard/allDonations'><FaCcAmazonPay></FaCcAmazonPay>All Donations</NavLink>

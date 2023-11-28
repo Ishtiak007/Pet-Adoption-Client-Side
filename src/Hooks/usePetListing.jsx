@@ -1,17 +1,18 @@
-import { useEffect, useState } from 'react';
+import useAxiosPublic from './useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
 
 const usePetListing = () => {
-    const [pets, setPets] = useState([]);
-    const [loading, setLoading] = useState(true);
-    useEffect(() => {
-        fetch('http://localhost:5000/petListing')
-            .then(res => res.json())
-            .then(data => {
-                setPets(data)
-                setLoading(false)
-            })
-    }, [])
-    return [pets, loading]
+    const axiosPublic = useAxiosPublic();
+
+    const { data: pets = [], isPending: loading, refetch } = useQuery({
+        queryKey: ['petListing'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/petListing');
+            return res.data;
+        }
+    })
+
+    return [pets, loading, refetch]
 };
 
 export default usePetListing;

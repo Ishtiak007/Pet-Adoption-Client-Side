@@ -31,7 +31,6 @@ const CreateDonationCampaign = () => {
                 shortDescription: data.shortDescription,
                 longDescription: data.longDescription,
                 dateAndTime: new Date
-
             }
             const donationRes = await axiosSecure.post('/campaigns', donationCampaigns);
             if (donationRes.data.insertedId) {
