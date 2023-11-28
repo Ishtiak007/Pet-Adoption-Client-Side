@@ -13,6 +13,8 @@ import CampaignsDetails from "../Pages/DonationCampaigns/CampaignsDetails";
 import DashBoard from "../Layout/DashBoard";
 import AddPet from "../Pages/UserDashboard/AddPet/AddPet";
 import AllUsers from "../Pages/AdminDashboard/AllUsers";
+import CreateDonationCampaign from "../Pages/UserDashboard/AddPet/CreateDonationCampaign";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
     {
@@ -53,11 +55,15 @@ export const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <DashBoard></DashBoard>,
+        element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
         children: [
             {
                 path: 'addPet',
                 element: <AddPet></AddPet>
+            },
+            {
+                path: 'createDonationCampaign',
+                element: <CreateDonationCampaign></CreateDonationCampaign>
             },
 
 
@@ -70,8 +76,9 @@ export const router = createBrowserRouter([
             // Admin Routes
             {
                 path: 'makeAdmin',
-                element: <AllUsers></AllUsers>
-            }
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+            },
+
         ]
     }
 ]);

@@ -83,13 +83,13 @@ const DashBoard = () => {
                                         <NavLink to='/dashboard/addPet'><FaCat></FaCat>Add a pet</NavLink>
                                     </li>
                                     <li>
+                                        <NavLink to='/dashboard/createDonationCampaign'><FaDonate></FaDonate>Create Donation Campaign</NavLink>
+                                    </li>
+                                    <li>
                                         <NavLink to='/dashboard/myAddedPet'><FaDog></FaDog>My added pets</NavLink>
                                     </li>
                                     <li>
                                         <NavLink to='/dashboard/adoptionRequest'><FaRegQuestionCircle></FaRegQuestionCircle>Adoption Request</NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink to='/dashboard/createDonationCampaign'><FaDonate></FaDonate>Create Donation Campaign</NavLink>
                                     </li>
                                     <li>
                                         <NavLink to='/dashboard/myDonationCampaign'><FaOdnoklassniki></FaOdnoklassniki>My Donation Campaigns</NavLink>
