@@ -2,11 +2,11 @@ import { Helmet } from "react-helmet-async";
 import Cover from "../../Components/Cover/Cover";
 import petListingImg from '../../assets/coverImg/petListing.jpg'
 import { FaCat } from "react-icons/fa";
-import usePetListing from "../../Hooks/usePetListing";
 import PetListingCard from "./PetListingCard";
+import usePetListing from "../../Hooks/usePetListing";
 
 const PetListing = () => {
-    const [pets] = usePetListing();
+    const [pets] = usePetListing()
     return (
         <div>
             <Helmet>

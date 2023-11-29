@@ -53,20 +53,21 @@ const DashBoard = () => {
                                     <NavLink to='/dashboard/manageAllPets'><FaPaw></FaPaw>Manage All Pets</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to='/dashboard/allDonations'><FaCcAmazonPay></FaCcAmazonPay>All Donations</NavLink>
+                                    <NavLink to='/dashboard/allDonations'><FaCcAmazonPay></FaCcAmazonPay>All Donation Campaigns</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to='/dashboard/addPet'><FaCat></FaCat>Add a pet</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to='/dashboard/myAddedPet'><FaDog></FaDog>Admin added pets</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to='/dashboard/adoptionRequest'><FaRegQuestionCircle></FaRegQuestionCircle>Adoption Request</NavLink>
+                                    <NavLink to='/dashboard/addPet'><FaCat></FaCat>Add a pet (Admin)</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to='/dashboard/createDonationCampaign'><FaDonate></FaDonate>Create Donation Campaign</NavLink>
                                 </li>
+                                <li>
+                                    <NavLink to='/dashboard/myAddedPets'><FaDog></FaDog>Admin added pets</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/dashboard/adoptionRequest'><FaRegQuestionCircle></FaRegQuestionCircle>Adoption Request</NavLink>
+                                </li>
+
                                 <li>
                                     <NavLink to='/dashboard/myDonationCampaign'><FaOdnoklassniki></FaOdnoklassniki>My Donation Campaigns</NavLink>
                                 </li>
@@ -80,19 +81,20 @@ const DashBoard = () => {
                                 <>
                                     <h1 className="text-center my-5 font-bold text-2xl">User Dashboard</h1>
                                     <li>
-                                        <NavLink to='/dashboard/addPet'><FaCat></FaCat>Add a pet</NavLink>
+                                        <NavLink to='/dashboard/addPet'><FaCat></FaCat>Add a pet (User)</NavLink>
                                     </li>
                                     <li>
                                         <NavLink to='/dashboard/createDonationCampaign'><FaDonate></FaDonate>Create Donation Campaign</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to='/dashboard/myAddedPet'><FaDog></FaDog>My added pets</NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink to='/dashboard/adoptionRequest'><FaRegQuestionCircle></FaRegQuestionCircle>Adoption Request</NavLink>
+                                        <NavLink to='/dashboard/myAddedPets'><FaDog></FaDog>My added pets</NavLink>
                                     </li>
                                     <li>
                                         <NavLink to='/dashboard/myDonationCampaign'><FaOdnoklassniki></FaOdnoklassniki>My Donation Campaigns</NavLink>
+                                    </li>
+
+                                    <li>
+                                        <NavLink to='/dashboard/adoptionRequest'><FaRegQuestionCircle></FaRegQuestionCircle>Adoption Request</NavLink>
                                     </li>
                                     <li>
                                         <NavLink to='/dashboard/myDonation'><FaDochub></FaDochub>My Donations</NavLink>

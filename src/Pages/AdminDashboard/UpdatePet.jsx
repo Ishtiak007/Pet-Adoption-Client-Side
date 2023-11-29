@@ -41,7 +41,7 @@ const UpdatePet = () => {
                 Swal.fire({
                     position: "center",
                     icon: "success",
-                    title: `${data.petName} is Updated to the donation campaigns route`,
+                    title: `${data.petName} is Updated to the pet listing route`,
                     showConfirmButton: false,
                     timer: 1500
                 });

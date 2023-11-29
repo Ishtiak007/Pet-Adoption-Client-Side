@@ -17,6 +17,12 @@ import CreateDonationCampaign from "../Pages/UserDashboard/AddPet/CreateDonation
 import AdminRoute from "./AdminRoute";
 import ManageAllPets from "../Pages/AdminDashboard/ManageAllPets";
 import UpdatePet from "../Pages/AdminDashboard/UpdatePet";
+import ManageAllDonations from "../Pages/AdminDashboard/ManageAllDonations";
+import UpdateDonation from "../Pages/AdminDashboard/UpdateDonation";
+import MyAddedPets from "../Pages/UserDashboard/MyAddedPets";
+import UpdatePetUser from "../Pages/UserDashboard/UpdatePetUser";
+import MyAddedDonationCamp from "../Pages/UserDashboard/MyAddedDonationCamp";
+import UpdateDonationUser from "../Pages/UserDashboard/UpdateDonationUser";
 
 export const router = createBrowserRouter([
     {
@@ -67,6 +73,24 @@ export const router = createBrowserRouter([
                 path: 'createDonationCampaign',
                 element: <CreateDonationCampaign></CreateDonationCampaign>
             },
+            {
+                path: 'myAddedPets',
+                element: <MyAddedPets></MyAddedPets>
+            },
+            {
+                path: 'updatePetUser/:id',
+                element: <UpdatePetUser></UpdatePetUser>,
+                loader: ({ params }) => fetch(`http://localhost:5000/petListing/${params.id}`)
+            },
+            {
+                path: 'myDonationCampaign',
+                element: <MyAddedDonationCamp></MyAddedDonationCamp>
+            },
+            {
+                path: 'updateDonationCampaign/:id',
+                element: <UpdateDonationUser></UpdateDonationUser>,
+                loader: ({ params }) => fetch(`http://localhost:5000/campaigns/${params.id}`)
+            },
 
 
 
@@ -88,6 +112,15 @@ export const router = createBrowserRouter([
                 path: 'updatePet/:id',
                 element: <AdminRoute><UpdatePet></UpdatePet></AdminRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/petListing/${params.id}`)
+            },
+            {
+                path: 'allDonations',
+                element: <AdminRoute><ManageAllDonations></ManageAllDonations></AdminRoute>
+            },
+            {
+                path: 'updateDonation/:id',
+                element: <AdminRoute><UpdateDonation></UpdateDonation></AdminRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/campaigns/${params.id}`)
             }
 
         ]

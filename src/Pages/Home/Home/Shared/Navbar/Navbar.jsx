@@ -44,15 +44,13 @@ const Navbar = () => {
                 <div className="navbar-end">
                     <div className="dropdown dropdown-left z-10">
                         <label tabIndex={0} className="m-5">
-                            <Link>
-                                <div className="avatar">
-                                    <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                        {
-                                            user ? <div><img className="mr-3 w-[40px] rounded-full" src={user.photoURL} alt="" /></div> : <FaUser className='mx-auto text-3xl'></FaUser>
-                                        }
-                                    </div>
+                            <div className="avatar">
+                                <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                    {
+                                        user ? <div><img className="mr-3 w-[40px] rounded-full" src={user.photoURL} alt="" /></div> : <FaUser className='mx-auto text-3xl'></FaUser>
+                                    }
                                 </div>
-                            </Link>
+                            </div>
                         </label>
                         <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-slate-700 rounded-box w-52">
                             <div>

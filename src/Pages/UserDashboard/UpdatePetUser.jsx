@@ -1,19 +1,20 @@
-
-import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
-import useAuth from "../../../Hooks/useAuth";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { useLoaderData } from "react-router-dom";
+import SectionTitle from "../../Components/SectionTitle/SectionTitle";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
-const AddPet = () => {
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+const UpdatePetUser = () => {
+    const { petName, category, petAge, petLocation, shortDescription, longDescription, date, _id } = useLoaderData();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const axiosPublic = useAxiosPublic();
     const axiosSecure = useAxiosSecure();
-    const { user } = useAuth();
+
 
 
     const onSubmit = async (data) => {
@@ -33,17 +34,14 @@ const AddPet = () => {
                 date: data.date,
                 shortDescription: data.shortDescription,
                 longDescription: data.longDescription,
-                dateAndTime: new Date,
-                adopted: false,
-                email: user?.email
+                adopted: false
             }
-            const petResult = await axiosSecure.post('/petListing', petLists);
-            if (petResult.data.insertedId) {
-                reset()
+            const petResult = await axiosSecure.patch(`/petListing/${_id}`, petLists);
+            if (petResult.data.modifiedCount > 0) {
                 Swal.fire({
                     position: "center",
                     icon: "success",
-                    title: `${data.petName} is added to the donation campaigns route`,
+                    title: `${data.petName} is Updated to the pet listing route`,
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -53,8 +51,8 @@ const AddPet = () => {
     }
     return (
         <div>
-            <div className=" bg-zinc-300 p-3 rounded-md">
-                <SectionTitle heading={'Add a pet'} subHeading={'Add a pet from here'}></SectionTitle>
+            <SectionTitle heading={'Update Pet (USER)'} subHeading={'Update your added pet from here'}></SectionTitle>
+            <div className=" bg-indigo-200 p-3 rounded-md">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control w-full my-6">
 
@@ -77,6 +75,7 @@ const AddPet = () => {
                         </label>
                         <input
                             {...register("petName", { required: true })}
+                            defaultValue={petName}
                             name="petName"
                             type="text"
                             placeholder="Pet Name"
@@ -94,11 +93,10 @@ const AddPet = () => {
                                 <span className="label-text font-bold">Category Name</span>
                             </label>
                             <select
-                                defaultValue={'default'}
+                                defaultValue={category}
                                 {...register("category", { required: true })}
                                 name="category"
                                 className="select select-bordered w-full">
-                                <option value={'default'} disabled>select a value</option>
                                 <option value={'cat'}>Cat</option>
                                 <option value={'dog'}>Dog</option>
                                 <option value={'bird'}>Bird</option>
@@ -115,6 +113,7 @@ const AddPet = () => {
                                 <span className="label-text font-bold">Pet Age</span>
                             </label>
                             <input
+                                defaultValue={petAge}
                                 {...register("petAge", { required: true })}
                                 name="petAge"
                                 type="number"
@@ -133,6 +132,7 @@ const AddPet = () => {
                                 <span className="label-text font-bold">Pet Location</span>
                             </label>
                             <input
+                                defaultValue={petLocation}
                                 {...register("petLocation", { required: true })}
                                 name="petLocation"
                                 type="text"
@@ -147,6 +147,7 @@ const AddPet = () => {
                                 <span className="label-text font-bold">Adding Date</span>
                             </label>
                             <input
+                                defaultValue={date}
                                 {...register("date", { required: true })}
                                 name="date"
                                 type="date"
@@ -165,6 +166,7 @@ const AddPet = () => {
                             <span className="label-text font-bold">Short Description</span>
                         </label>
                         <textarea
+                            defaultValue={shortDescription}
                             {...register("shortDescription", { required: true })}
                             name="shortDescription"
                             className="textarea textarea-bordered h-24"
@@ -177,6 +179,7 @@ const AddPet = () => {
                             <span className="label-text font-bold">Long Description</span>
                         </label>
                         <textarea
+                            defaultValue={longDescription}
                             {...register("longDescription", { required: true })}
                             name="longDescription"
                             className="textarea textarea-bordered h-24"
@@ -187,7 +190,7 @@ const AddPet = () => {
 
 
                     <div className="text-center">
-                        <button type="submit" className="btn bg-sky-600 rounded-2xl btn-outline text-white font-bold my-4">Add Your Pet</button>
+                        <button type="submit" className="btn bg-sky-600 rounded-2xl btn-outline text-white font-bold my-4">Update Your Pet</button>
                     </div>
                 </form>
             </div>
@@ -195,4 +198,4 @@ const AddPet = () => {
     );
 };
 
-export default AddPet;
+export default UpdatePetUser;

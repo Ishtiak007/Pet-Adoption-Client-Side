@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 const PetDetails = () => {
     const petDetails = useLoaderData();
-    const { image, petName, petAge, date, location, longDescription, category } = petDetails;
+    const { image, petName, petAge, date, petLocation, longDescription, category } = petDetails;
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
 
@@ -62,7 +62,7 @@ const PetDetails = () => {
                             <h2 className="card-title font-bold">Pet Name : {petName}</h2>
                             <p className="font-bold">Pet Age: {petAge}</p>
                             <p className="font-bold">Category: {category}</p>
-                            <p className="font-bold">Location: {location}</p>
+                            <p className="font-bold">Location: {petLocation}</p>
                             <p className="font-bold">Date: {date}</p>
                             <p className="text-gray-500">{longDescription}</p>
                             <div className="card-actions justify-start my-4">
