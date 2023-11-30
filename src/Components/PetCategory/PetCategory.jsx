@@ -5,7 +5,7 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 const PetCategory = () => {
     const [category, petCategory] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/category')
+        fetch('https://pet-adoption-server-pi.vercel.app/category')
             .then(res => res.json())
             .then(data => petCategory(data))
     }, [])
