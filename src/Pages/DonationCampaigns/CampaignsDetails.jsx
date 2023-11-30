@@ -40,7 +40,10 @@ const CampaignsDetails = () => {
                                                     </label>
                                                     <input type="text" name="yourDonation" placeholder="Your Donation" className="input input-bordered" required />
                                                 </div> */}
-                                                <div className="form-control mt-3">
+                                                <div>
+                                                    <div>
+                                                        <p className="font-bold text-center my-4">Maximum Donation <span className="text-red-500">{maximumDonation} $</span> and Highest Donation : <span className="text-green-500">{highestTotal} $</span></p>
+                                                    </div>
                                                     {
 
                                                         maximumDonation.length ? <Link to='/dashboard/payment'>

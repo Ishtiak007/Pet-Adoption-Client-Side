@@ -28,7 +28,7 @@ const CreateDonationCampaign = () => {
                 petName: data.petName,
                 image: res.data.data.display_url,
                 maximumDonation: data.maximumDonation,
-                highestTotal: parseFloat(data.highestTotal),
+                highestTotal: data.highestTotal,
                 lastDate: data.lastDate,
                 shortDescription: data.shortDescription,
                 longDescription: data.longDescription,

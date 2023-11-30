@@ -7,7 +7,7 @@ const PetListingCard = ({ item }) => {
         <div className="card lg:w-96 md:w-96 bg-base-100 shadow-xl my-6">
             <div className="card-body h-36">
                 <h2 className="text-2xl font-medium">Pet Name: {petName}</h2>
-                <p>Pet Age: {petAge}</p>
+                <p>Pet Age: {petAge} Month</p>
                 <p>Category: {category}</p>
             </div>
             <figure><img src={image} className="h-64 w-full" alt="Image" /></figure>

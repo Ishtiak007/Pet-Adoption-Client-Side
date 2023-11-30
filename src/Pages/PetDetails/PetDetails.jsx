@@ -60,7 +60,7 @@ const PetDetails = () => {
                     <div className="card w-full bg-base-100 shadow-xl">
                         <div className="card-body">
                             <h2 className="card-title font-bold">Pet Name : {petName}</h2>
-                            <p className="font-bold">Pet Age: {petAge}</p>
+                            <p className="font-bold">Pet Age: {petAge} Month</p>
                             <p className="font-bold">Category: {category}</p>
                             <p className="font-bold">Location: {petLocation}</p>
                             <p className="font-bold">Date: {date}</p>
