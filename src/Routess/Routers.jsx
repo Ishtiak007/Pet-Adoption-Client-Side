@@ -26,11 +26,14 @@ import UpdateDonationUser from "../Pages/UserDashboard/UpdateDonationUser";
 import Payment from "../Pages/Payment/Payment";
 import PaymentInformation from "../Pages/Payment/PaymentInformation";
 import AdoptionRequest from "../Pages/UserDashboard/AdoptionRequest";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import Contact from "../Components/AboutUs/Contact";
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout></MainLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -47,6 +50,10 @@ export const router = createBrowserRouter([
             {
                 path: '/signUp',
                 element: <SignUp></SignUp>
+            },
+            {
+                path: '/contact',
+                element: <Contact></Contact>
             },
             {
                 path: '/petDetails/:id',

@@ -34,7 +34,7 @@ const Banner = () => {
                                 <div>
                                     <h1 className="text-2xl text-white lato">Unleash Love: Explore Our Adoptable Pets Today</h1>
                                     <p className="text-sm text-white my-2">Warm hearts, wagging tails: Embrace the joy of pet adoption. Find your perfect companion now!</p>
-                                    <Link to='/register'><button className="btn  bg-[#FF4880] hover:bg-[#FF4860] text-white px-4 py-[2px] rounded-2xl">Get Started</button></Link>
+                                    <Link to='/petListing'><button className="btn  bg-[#FF4880] hover:bg-[#FF4860] text-white px-4 py-[2px] rounded-2xl">Get Started</button></Link>
                                 </div>
                             </div>
                         </div>
@@ -48,7 +48,7 @@ const Banner = () => {
                                 <div>
                                     <h1 className="text-2xl text-white lato">Home is Where the Paw Prints Are: Adopt a Pet</h1>
                                     <p className="text-sm text-white my-2">Adopt a friend, be a hero! Your new adventure begins with our lovable, furry companions.</p>
-                                    <Link to='/register'><button className="btn  bg-[#FF4880] hover:bg-[#FF4860] text-white px-4 py-[2px] rounded-2xl">Get Started</button></Link>
+                                    <Link to='/petListing'><button className="btn  bg-[#FF4880] hover:bg-[#FF4860] text-white px-4 py-[2px] rounded-2xl">Get Started</button></Link>
                                 </div>
                             </div>
                         </div>
@@ -62,7 +62,7 @@ const Banner = () => {
                                 <div>
                                     <h1 className="text-2xl text-white lato">Pawsitively Perfect Companions: Adopt from Us</h1>
                                     <p className="text-sm text-white my-2">From shelter to snuggles: Explore our adoptable pets and give a deserving friend a home.</p>
-                                    <Link to='/register'><button className="btn  bg-[#FF4880] hover:bg-[#FF4860] text-white px-4 py-[2px] rounded-2xl">Get Started</button></Link>
+                                    <Link to='/petListing'><button className="btn  bg-[#FF4880] hover:bg-[#FF4860] text-white px-4 py-[2px] rounded-2xl">Get Started</button></Link>
                                 </div>
                             </div>
                         </div>
@@ -76,7 +76,7 @@ const Banner = () => {
                                 <div>
                                     <h1 className="text-2xl text-white lato">Rescue, Love, Repeat: Your New Best Friend Awaits</h1>
                                     <p className="text-sm text-white my-2">Change a world with adoption! Meet your match among our lovable, ready-for-home pets today.</p>
-                                    <Link to='/register'><button className="btn  bg-[#FF4880] hover:bg-[#FF4860] text-white  px-4 py-[2px] rounded-2xl">Get Started</button></Link>
+                                    <Link to='/petListing'><button className="btn  bg-[#FF4880] hover:bg-[#FF4860] text-white  px-4 py-[2px] rounded-2xl">Get Started</button></Link>
                                 </div>
                             </div>
                         </div>
@@ -90,7 +90,7 @@ const Banner = () => {
                                 <div>
                                     <h1 className="text-2xl text-white lato">Adopt a Fur-ever Friend: Browse Our Adorable Pets</h1>
                                     <p className="text-sm text-white my-2">Create happiness: Adopt a pet, save a life. Unconditional love awaits in our furry companions.</p>
-                                    <Link to='/register'><button className="btn  bg-[#FF4880] hover:bg-[#FF4860] text-white  px-4 py-[2px] rounded-2xl">Get Started</button></Link>
+                                    <Link to='/petListing'><button className="btn  bg-[#FF4880] hover:bg-[#FF4860] text-white  px-4 py-[2px] rounded-2xl">Get Started</button></Link>
                                 </div>
                             </div>
                         </div>
@@ -105,7 +105,7 @@ const Banner = () => {
                                     <div>
                                         <h1 className="text-2xl text-white lato">From Shelter to Forever Home: Adopt a Pet with Us</h1>
                                         <p className="text-sm text-white my-2">Transform lives and bring joy: Explore our adoptable pets and find your forever furry friend!</p>
-                                        <Link to='/register'><button className="btn bg-[#FF4880] hover:bg-[#FF4860] text-white  px-4 py-[2px] rounded-2xl">Get Started</button></Link>
+                                        <Link to='/petListing'><button className="btn bg-[#FF4880] hover:bg-[#FF4860] text-white  px-4 py-[2px] rounded-2xl">Get Started</button></Link>
                                     </div>
                                 </div>
                             </div>

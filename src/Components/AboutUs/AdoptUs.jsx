@@ -15,7 +15,7 @@ const AdoptUs = () => {
                         <div>
                             <h1 className="text-4xl text-left font-bold">Join our club</h1>
                             <p className="text-gray-700 my-5">Embark on an enriching journey. Join our club, where shared passions flourish, friendships blossom, and a vibrant community awaits. Experience the joy of connection, learning, and growth together with us.</p>
-                            <Link><button className="px-4 py-2 bg-[#FF4860] rounded-2xl btn-outline text-white font-bold">Contact Us</button></Link>
+                            <Link to='/contact'><button className="px-4 py-2 bg-[#FF4860] rounded-2xl btn-outline text-white font-bold">Contact Us</button></Link>
                         </div>
                     </div>
                 </div>
