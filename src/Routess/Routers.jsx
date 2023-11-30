@@ -23,6 +23,8 @@ import MyAddedPets from "../Pages/UserDashboard/MyAddedPets";
 import UpdatePetUser from "../Pages/UserDashboard/UpdatePetUser";
 import MyAddedDonationCamp from "../Pages/UserDashboard/MyAddedDonationCamp";
 import UpdateDonationUser from "../Pages/UserDashboard/UpdateDonationUser";
+import Payment from "../Pages/Payment/Payment";
+import PaymentInformation from "../Pages/Payment/PaymentInformation";
 
 export const router = createBrowserRouter([
     {
@@ -90,6 +92,14 @@ export const router = createBrowserRouter([
                 path: 'updateDonationCampaign/:id',
                 element: <UpdateDonationUser></UpdateDonationUser>,
                 loader: ({ params }) => fetch(`http://localhost:5000/campaigns/${params.id}`)
+            },
+            {
+                path: 'payment',
+                element: <Payment></Payment>
+            },
+            {
+                path: 'paymentHistory',
+                element: <PaymentInformation></PaymentInformation>
             },
 
 

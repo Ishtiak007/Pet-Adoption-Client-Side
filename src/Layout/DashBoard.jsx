@@ -72,7 +72,7 @@ const DashBoard = () => {
                                     <NavLink to='/dashboard/myDonationCampaign'><FaOdnoklassniki></FaOdnoklassniki>My Donation Campaigns</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to='/dashboard/myDonation'><FaDochub></FaDochub>My Donations</NavLink>
+                                    <NavLink to='/dashboard/paymentHistory'><FaDochub></FaDochub>My Donations</NavLink>
                                 </li>
 
                             </>
@@ -97,7 +97,7 @@ const DashBoard = () => {
                                         <NavLink to='/dashboard/adoptionRequest'><FaRegQuestionCircle></FaRegQuestionCircle>Adoption Request</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to='/dashboard/myDonation'><FaDochub></FaDochub>My Donations</NavLink>
+                                        <NavLink to='/dashboard/paymentHistory'><FaDochub></FaDochub>My Donations</NavLink>
                                     </li>
                                 </>
                         }

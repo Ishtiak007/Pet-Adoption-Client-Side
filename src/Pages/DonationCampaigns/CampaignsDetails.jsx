@@ -34,14 +34,23 @@ const CampaignsDetails = () => {
                                         <h3 className="font-bold text-lg text-center">Donate Your Amount</h3>
                                         <div className="modal-action">
                                             <form method="dialog" className="card-body">
-                                                <div className="form-control">
+                                                {/* <div className="form-control">
                                                     <label className="label">
                                                         <span className="label-text font-semibold">Your Donation</span>
                                                     </label>
                                                     <input type="text" name="yourDonation" placeholder="Your Donation" className="input input-bordered" required />
-                                                </div>
+                                                </div> */}
                                                 <div className="form-control mt-3">
-                                                    <button className="px-4 py-2 bg-blue-800 rounded-2xl btn-outline text-white font-bold">Donate</button>
+                                                    {
+
+                                                        maximumDonation.length ? <Link to='/dashboard/payment'>
+                                                            <button className="px-4 py-2 bg-blue-800 w-full rounded-2xl btn-outline text-white font-bold">Donate</button>
+                                                        </Link>
+                                                            :
+
+                                                            <button disabled className="px-4 py-2 bg-blue-800 w-full rounded-2xl btn-outline text-white font-bold">Donate</button>
+
+                                                    }
                                                     <p className="text-center my-1">Press ESC key to exit</p>
                                                 </div>
                                             </form>
