@@ -65,7 +65,7 @@ const DashBoard = () => {
                                     <NavLink to='/dashboard/myAddedPets'><FaDog></FaDog>Admin added pets</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to='/dashboard/adoptionRequest'><FaRegQuestionCircle></FaRegQuestionCircle>Adoption Request</NavLink>
+                                    <NavLink to='/dashboard/petAdoptor'><FaRegQuestionCircle></FaRegQuestionCircle>Adoption Request</NavLink>
                                 </li>
 
                                 <li>
@@ -94,7 +94,7 @@ const DashBoard = () => {
                                     </li>
 
                                     <li>
-                                        <NavLink to='/dashboard/adoptionRequest'><FaRegQuestionCircle></FaRegQuestionCircle>Adoption Request</NavLink>
+                                        <NavLink to='/dashboard/petAdoptor'><FaRegQuestionCircle></FaRegQuestionCircle>Adoption Request</NavLink>
                                     </li>
                                     <li>
                                         <NavLink to='/dashboard/paymentHistory'><FaDochub></FaDochub>My Donations</NavLink>

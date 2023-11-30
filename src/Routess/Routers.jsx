@@ -25,6 +25,7 @@ import MyAddedDonationCamp from "../Pages/UserDashboard/MyAddedDonationCamp";
 import UpdateDonationUser from "../Pages/UserDashboard/UpdateDonationUser";
 import Payment from "../Pages/Payment/Payment";
 import PaymentInformation from "../Pages/Payment/PaymentInformation";
+import AdoptionRequest from "../Pages/UserDashboard/AdoptionRequest";
 
 export const router = createBrowserRouter([
     {
@@ -100,6 +101,10 @@ export const router = createBrowserRouter([
             {
                 path: 'paymentHistory',
                 element: <PaymentInformation></PaymentInformation>
+            },
+            {
+                path: 'petAdoptor',
+                element: <AdoptionRequest></AdoptionRequest>
             },
 
 

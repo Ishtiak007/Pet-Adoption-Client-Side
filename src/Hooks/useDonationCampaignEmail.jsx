@@ -9,7 +9,7 @@ const useDonationCampaignEmail = () => {
     const { data: campaigns = [], refetch } = useQuery({
         queryKey: ['campaigns', user?.email],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/campaigns?email=${user.email}`)
+            const res = await axiosSecure.get(`/campaigns?adderEmail=${user.email}`)
             return res.data;
         }
     })

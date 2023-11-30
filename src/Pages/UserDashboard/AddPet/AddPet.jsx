@@ -35,7 +35,7 @@ const AddPet = () => {
                 longDescription: data.longDescription,
                 dateAndTime: new Date,
                 adopted: false,
-                email: user?.email
+                email: user?.email,
             }
             const petResult = await axiosSecure.post('/petListing', petLists);
             if (petResult.data.insertedId) {

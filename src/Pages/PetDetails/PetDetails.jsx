@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 const PetDetails = () => {
     const petDetails = useLoaderData();
-    const { image, petName, petAge, date, petLocation, longDescription, category } = petDetails;
+    const { image, petName, petAge, date, petLocation, longDescription, category, email } = petDetails;
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
 
@@ -17,12 +17,12 @@ const PetDetails = () => {
         e.preventDefault();
         const form = e.target;
         const name = user?.displayName;
-        const email = user?.email;
+        const adoptorEmail = user?.email;
         const phoneNumber = form.phoneNumber.value;
         const address = form.address.value;
 
         const UserInformation = {
-            name, email, phoneNumber, address, image, petName, petAge, date, location, longDescription, category
+            name, adoptorEmail, phoneNumber, address, image, petName, petAge, date, petLocation, longDescription, category, email
         }
         axiosSecure.post('/adoptionUsers', UserInformation)
             .then(res => {
