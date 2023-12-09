@@ -32,7 +32,7 @@ const Banner = () => {
                         <div className="flex justify-center items-center h-full w-full text-center  absolute bottom-0 left-0 right-0 top-0  overflow-hidden bg-fixed">
                             <div className="max-w-2xl bg-gray-700 opacity-70 p-3 rounded-md">
                                 <div>
-                                    <h1 className="text-2xl text-white lato">Unleash Love: Explore Our Adoptable Pets Today</h1>
+                                    <h1 className="text-2xl text-white lato">Unleash Lover: Explore Our Adoptable Pets Today</h1>
                                     <p className="text-sm text-white my-2">Warm hearts, wagging tails: Embrace the joy of pet adoption. Find your perfect companion now!</p>
                                     <Link to='/petListing'><button className="btn  bg-[#FF4880] hover:bg-[#FF4860] text-white px-4 py-[2px] rounded-2xl">Get Started</button></Link>
                                 </div>
